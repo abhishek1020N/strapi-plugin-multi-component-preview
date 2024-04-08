@@ -6,7 +6,6 @@ Component Preview plugin is used to view the actual component through a custom f
 
 The plugin can be used in strapi version above 4.4 (versions that support custom fields).
 
-![multi-select screenshot](./screenshots/plugin-component-ss-1.png)
 
 ### To Install
 

@@ -11,7 +11,7 @@
   "dependencies": {},
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/abhishek1020N/strapi-plugin-multi-component-preview.git"
   },
   "author": {
     "name": "Abhishek Naik",
