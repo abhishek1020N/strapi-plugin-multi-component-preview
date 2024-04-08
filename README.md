@@ -34,4 +34,4 @@ Inorder to achieve the url of the file uploading it must be specified in the .en
 
 
 ## Acknowledgment
-This plugin is based on https://www.npmjs.com/package/strapi-plugin-multi-component-preview
+This plugin is based on https://www.npmjs.com/package/strapi-plugin-component-preview
