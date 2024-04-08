@@ -1,0 +1,39 @@
+{
+  "name": "strapi-plugin-multi-component-preview",
+  "version": "1.0.0",
+  "description": "This plugin shows a preview of the component that is developed.",
+  "strapi": {
+    "name": "multicomponentpreview",
+    "description": "This plugin shows a preview of the component that is developed by adding images.",
+    "kind": "plugin",
+    "displayName": "Component Preview"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": {
+    "name": "Abhishek Naik",
+    "email": "abhishek08naik@gmail.com"
+  },
+  "peerDependencies": {
+    "@strapi/strapi": "^4.0.0"
+  },
+  "maintainers": [
+    {
+      "name": "A Strapi developer"
+    }
+  ],
+  "keywords": [
+    "strapi",
+    "component",
+    "component preview",
+    "content types"
+  ],
+  "engines": {
+    "node": ">=14.19.1 <=18.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}
