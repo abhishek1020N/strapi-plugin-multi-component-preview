@@ -10,7 +10,7 @@ The plugin can be used in strapi version above 4.4 (versions that support custom
 ### To Install
 
 1. Go into your strapi project.
-2. Run the npm command `npm i strapi-plugin-component-preview`
+2. Run the npm command `npm i strapi-plugin-multi-component-preview`
 3. The plugin will be added to your strapi project.
 
 Inorder to achieve the url of the file uploading it must be specified in the .env file as **STRAPI_ADMIN_BACKEND_URL**. This url need to be the base url of the admin.
@@ -34,4 +34,4 @@ Inorder to achieve the url of the file uploading it must be specified in the .en
 
 
 ## Acknowledgment
-This plugin is based on https://www.npmjs.com/package/strapi-plugin-component-preview
+This plugin is based on https://www.npmjs.com/package/strapi-plugin-multi-component-preview
