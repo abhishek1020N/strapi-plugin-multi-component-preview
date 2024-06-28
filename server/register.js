@@ -5,6 +5,6 @@ module.exports = ({ strapi }) => {
   strapi.customFields.register({
     name: 'preview',
     plugin: 'multicomponentpreview',
-    type: 'string',
+    type: 'json',
   });
 };

@@ -1,8 +1,8 @@
-import { prefixPluginTranslations } from '@strapi/helper-plugin';
-import pluginPkg from '../../package.json';
-import pluginId from './pluginId';
-import Initializer from './components/Initializer';
-import getTrad from './utils/getTrad';
+import { prefixPluginTranslations } from "@strapi/helper-plugin";
+import pluginPkg from "../../package.json";
+import pluginId from "./pluginId";
+import Initializer from "./components/Initializer";
+import getTrad from "./utils/getTrad";
 
 const name = pluginPkg.strapi.name;
 
@@ -17,8 +17,8 @@ export default {
 
     app.customFields.register({
       name: "preview",
-      pluginId: "multicomponentpreview", // the custom field is created by a color-picker plugin
-      type: "string", // the color will be stored as a string
+      pluginId: "multicomponentpreview", // the custom field name
+      type: "json", // the field type
       intlLabel: {
         id: getTrad("multicomponentpreview.preview.label"),
         defaultMessage: "Component Preview",
@@ -37,36 +37,33 @@ export default {
             sectionTitle: null,
             items: [
               {
-                name: 'options.url',//name of an related field
-                type: 'text',//input type
+                name: "options.data", //name of an related field
+                type: "json", //input type
                 intlLabel: {
-                  id: getTrad('url.text'),
-                  defaultMessage: 'Enter File Path',//label for the info field
+                  id: getTrad("url.text"),
+                  defaultMessage: "Enter Block Details", //label for the info field
                 },
+                /**
+                 * [{ 'id':1, 'url': 'uploads/testimonails_510808c87b.jpg','type': 'type_1','description':'Preview Image Block'}]
+                 */
                 description: {
-                  id: getTrad('url.description'),
-                  defaultMessage:
-                    'Enter the image url.',//description for field
+                  id: getTrad("url.description"),
+                  defaultMessage: "Add number of fields with data.", //description for field
                 },
                 placeholder: {
-                  id: getTrad('url.placeholder'),
-                  defaultMessage: 'uploads/components/image.jpg',
+                  id: getTrad("url.placeholder"),
+                  defaultMessage:
+                    "[{ 'id':1, 'url': 'uploads/testimonails_510808c87b.jpg','type': 'type_1','description':'Preview Image Block'}]",
                 },
               },
             ],
           },
         ],
-
-
       },
     });
-
-
-
   },
 
-  bootstrap(app) {
-  },
+  bootstrap(app) {},
   async registerTrads({ locales }) {
     const importedTrads = await Promise.all(
       locales.map((locale) => {
