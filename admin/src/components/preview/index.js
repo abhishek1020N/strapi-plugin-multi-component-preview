@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useIntl } from "react-intl";
-
+import styled from "styled-components";
 import {
   Box,
-  Button,
+  Card,
+  CardAction,
+  CardAsset,
   CarouselInput,
   CarouselImage,
   CarouselSlide,
@@ -16,6 +18,10 @@ import {
   FieldLabel,
   FieldHint,
   Field,
+  CardBody,
+  CardContent,
+  CardSubtitle,
+  CardTitle,
   Flex,
 } from "@strapi/design-system";
 
@@ -44,10 +50,15 @@ const preview = ({
   };
   if (attribute.options?.data && JSON.parse(attribute.options?.data)?.length) {
     const dataArray = JSON.parse(attribute.options?.data);
-    console.log("dataArray:", dataArray);
+    // console.log("dataArray:", dataArray);
     return (
       <Field hint={description && formatMessage(description)}>
-        <GridItem background="primary200" padding={1} hasRadius>
+        <GridItem
+          background="primary200"
+          padding={1}
+          hasRadius
+          style={{ width: "50%", height: "20vh" }}
+        >
           <CarouselInput
             label={`Preview Blocks - (${selectedIndex + 1}/${
               dataArray?.length
@@ -65,18 +76,34 @@ const preview = ({
                 <CarouselSlide
                   key={file?.id}
                   label={`${index + 1} of ${dataArray?.length} slides`}
+                  style={{ height: "15vh" }}
                 >
-                  <CarouselImage
-                    label={`${file?.description} - ${file?.type}`}
-                    src={fileUrlImg}
-                    alt={file?.type}
-                    onClick={() => {
-                      setIsVisibleSlider((prev) => !prev);
-                      setFileURL(fileUrlImg);
-                      setFileType(`${file?.type}`);
-                      setFileTitle(`${file?.description}`);
-                    }}
-                  />
+                  <CardContainer
+                    role="button"
+                    tabIndex={-1}
+                    style={{ alignItems: "centre" }}
+                  >
+                    <CardBody>
+                      <CardContent>
+                        <Box>
+                          <CardTitle as="h3">{file?.description}</CardTitle>
+                        </Box>
+                        <CarouselImage
+                          style={{ height: "10vh" }}
+                          label={`${file?.description} - ${file?.type}`}
+                          src={fileUrlImg}
+                          alt={file?.type}
+                          onClick={() => {
+                            setIsVisibleSlider((prev) => !prev);
+                            setFileURL(fileUrlImg);
+                            setFileType(`${file?.type}`);
+                            setFileTitle(`${file?.description}`);
+                          }}
+                        />
+                        <CardSubtitle>{file?.type}</CardSubtitle>
+                      </CardContent>
+                    </CardBody>
+                  </CardContainer>
                 </CarouselSlide>
               );
             })}
@@ -94,20 +121,20 @@ const preview = ({
                 as="h2"
                 id="title"
               >
-                {getFileTitle}
+                {getFileType}
               </Typography>
             </ModalHeader>
             <ModalBody
               style={{
-                height: "85vh",
-                maxheight: "85vh !important",
+                // height: "85vh",
+                // maxheight: "85vh !important",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
               }}
             >
               <CarouselInput
-                label={getFileType}
+                label={getFileTitle}
                 style={{
                   display: "flex",
                   justifyContent: "center",
@@ -190,3 +217,24 @@ preview.propTypes = {
 };
 
 export default preview;
+const Extension = styled.span`
+  text-transform: uppercase;
+`;
+
+const CardActionsContainer = styled(CardAction)`
+  opacity: 0;
+
+  &:focus-within {
+    opacity: 1;
+  }
+`;
+
+const CardContainer = styled(Card)`
+  cursor: pointer;
+
+  &:hover {
+    ${CardActionsContainer} {
+      opacity: 1;
+    }
+  }
+`;
