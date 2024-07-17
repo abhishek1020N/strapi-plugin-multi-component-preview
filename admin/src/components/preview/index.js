@@ -152,7 +152,7 @@ const preview = ({
   return (
     <Field hint={description && formatMessage(description)}>
       <Flex direction="column" alignItems="stretch" gap={1}>
-        <FieldLabel>{"Block design Example"}</FieldLabel>
+        <FieldLabel>{intlLabel}</FieldLabel>
         <div style={{ width: 100, height: 100, cursor: "pointer" }}>
           <CarouselInput>
             <CarouselImage
@@ -175,7 +175,7 @@ const preview = ({
               as="h2"
               id="title"
             >
-              Block design Example
+              {intlLabel}
             </Typography>
           </ModalHeader>
           <ModalBody
